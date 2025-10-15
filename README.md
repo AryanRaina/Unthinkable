@@ -2,6 +2,14 @@
 
 Smart Resume Screener ingests resumes, structures the data, and ranks candidates against job descriptions using either an OpenAI model or a deterministic heuristic. It ships as a FastAPI backend with a Vite + React dashboard for recruiters.
 
+# Demo Video
+
+<p align="center">
+  <a href="https://youtu.be/DbvOis2-RuA" target="_blank">
+    <img src="https://img.youtube.com/vi/4SvEMh8TU8E/0.jpg" alt="Watch the video" />
+  </a>
+</p>
+
 ## System Architecture
 
 ```
