@@ -6,7 +6,7 @@ Smart Resume Screener ingests resumes, structures the data, and ranks candidates
 
 <p align="center">
   <a href="https://youtu.be/DbvOis2-RuA" target="_blank">
-    <img src="https://img.youtube.com/vi/4SvEMh8TU8E/0.jpg" alt="Watch the video" />
+    <img src="https://youtu.be/DbvOis2-RuA" alt="Watch the video" />
   </a>
 </p>
 
