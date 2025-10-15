@@ -1,0 +1,56 @@
+# Environment and secrets
+.env
+*.env
+!.env.example
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# Databases and local storage
+*.sqlite
+*.sqlite3
+smart_resume.db
+
+# Python build artefacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.whl
+build/
+dist/
+.eggs/
+*.egg-info/
+.python-version
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.dmypy.json
+.pyre/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Node / frontend artefacts
+frontend/node_modules/
+frontend/dist/
+frontend/.nitro/
+frontend/.output/
+
+# Logs
+*.log
+logs/
+
+# IDE and OS noise
+.vscode/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

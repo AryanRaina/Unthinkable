@@ -1,0 +1,592 @@
+:root {
+  color-scheme: dark;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #020617;
+  color: #e2e8f0;
+  line-height: 1.55;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.18), transparent 50%),
+    radial-gradient(circle at 100% 0%, rgba(236, 72, 153, 0.18), transparent 55%),
+    linear-gradient(180deg, #020617 0%, #0b1120 100%);
+}
+
+#root {
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(15, 23, 42, 0.75);
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(96, 165, 250, 0.8);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.25);
+}
+
+textarea {
+  resize: vertical;
+}
+
+button.primary {
+  padding: 0.7rem 1.3rem;
+  border-radius: 0.9rem;
+  border: none;
+  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+  color: #f8fafc;
+  font-weight: 600;
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.25);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+button.primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 40px rgba(99, 102, 241, 0.32);
+}
+
+button.secondary {
+  padding: 0.65rem 1.1rem;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: rgba(15, 23, 42, 0.8);
+  color: inherit;
+}
+
+button.ghost {
+  padding: 0.6rem 1rem;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: transparent;
+  color: inherit;
+}
+
+button.danger {
+  padding: 0.6rem 1rem;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(248, 113, 113, 0.45);
+  background: rgba(248, 113, 113, 0.16);
+  color: #fecaca;
+  font-weight: 600;
+  transition: background 0.16s ease, transform 0.16s ease;
+}
+
+button.danger:hover:not(:disabled) {
+  background: rgba(248, 113, 113, 0.24);
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.stack {
+  display: grid;
+  gap: 0.75rem;
+}
+
+label span {
+  color: #cbd5f5;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.5rem 2.25rem;
+  background: rgba(10, 14, 26, 0.85);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  border-right: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.sidebarBrand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brandMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.35), rgba(99, 102, 241, 0.5));
+  color: #f8fafc;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.sidebarBrand h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.sidebarBrand p {
+  margin: 0.35rem 0 0;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.sidebarActions {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.sidebarHint {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.sidebarDrawer {
+  animation: fadeIn 0.25s ease;
+}
+
+.sidebarSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebarSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.workspace {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem 3.25rem;
+}
+
+.workspaceHeader {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.workspaceEyebrow {
+  margin: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(148, 163, 184, 0.85);
+}
+
+.workspaceHeader h2 {
+  margin: 0.2rem 0;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.workspaceSummary {
+  margin: 0;
+  max-width: 48rem;
+  color: #cbd5f5;
+}
+
+.workspaceActions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.workspaceGrid {
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.panel {
+  background: rgba(12, 18, 33, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.45);
+  display: grid;
+  gap: 1.25rem;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.panelHeader h2,
+.panelHeader h3 {
+  margin: 0;
+}
+
+.panelHeader p {
+  margin: 0.4rem 0 0;
+  color: #94a3b8;
+  max-width: 32rem;
+}
+
+.panel--form {
+  gap: 1.25rem;
+}
+
+.panel--formInline {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.panel--detail {
+  align-self: start;
+}
+
+.panel--shortlist {
+  gap: 1.5rem;
+}
+
+.panel--empty {
+  align-self: center;
+  text-align: center;
+  gap: 0.75rem;
+  max-width: 420px;
+  margin: 4rem auto;
+}
+
+.panel--empty h2 {
+  margin: 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.18);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  font-size: 0.75rem;
+  color: #c7d2fe;
+  font-weight: 600;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.14);
+  border: 1px solid rgba(59, 130, 246, 0.28);
+  font-size: 0.75rem;
+  color: #bfdbfe;
+}
+
+.pill.muted {
+  background: rgba(148, 163, 184, 0.15);
+  border-color: rgba(148, 163, 184, 0.3);
+  color: #cbd5f5;
+}
+
+.tabs {
+  display: inline-flex;
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 0.2rem;
+  gap: 0.25rem;
+}
+
+.tab {
+  border: none;
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  color: #cbd5f5;
+  background: transparent;
+}
+
+.tab.active {
+  background: rgba(59, 130, 246, 0.2);
+  color: #e2e8f0;
+}
+
+.jobList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.jobListItem {
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(13, 20, 35, 0.9);
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem 1.1rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.jobListItem.active {
+  border-color: rgba(99, 102, 241, 0.6);
+  transform: translateY(-2px);
+}
+
+.jobListSelectable {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.jobListTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.jobListTitle h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.jobListTitle small {
+  color: #94a3b8;
+}
+
+.jobListSummary {
+  margin: 0;
+  color: #cbd5f5;
+  font-size: 0.9rem;
+}
+
+.jobListTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.jobListFooter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.shortlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.shortlistItem {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 110px 1fr;
+  padding: 1.1rem 1.25rem;
+  border-radius: 1rem;
+  background: rgba(13, 20, 35, 0.85);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+.shortlistScore {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  text-align: center;
+}
+
+.shortlistScore span {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.shortlistScore small {
+  color: #94a3b8;
+}
+
+.shortlistContent {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.shortlistHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.shortlistHeader h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.shortlistHeaderMain {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.shortlistHeader button {
+  align-self: flex-start;
+}
+
+.skillsInline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.shortlistReasoning {
+  margin: 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.35rem;
+  color: #cbd5f5;
+}
+
+.emptyState {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.jobOverview {
+  display: grid;
+  gap: 0.75rem;
+  color: #cbd5f5;
+}
+
+.jobOverviewTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.toast {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.35);
+  z-index: 10;
+}
+
+.toast.success {
+  border-color: rgba(34, 197, 94, 0.6);
+  background: rgba(34, 197, 94, 0.15);
+}
+
+.toast.error {
+  border-color: rgba(248, 113, 113, 0.6);
+  background: rgba(248, 113, 113, 0.18);
+}
+
+.toast button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1080px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+    padding: 2rem 1.75rem;
+  }
+
+  .workspace {
+    padding: 2.5rem 1.75rem 3rem;
+  }
+
+  .toast {
+    right: 1rem;
+    left: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .workspaceHeader h2 {
+    font-size: 1.6rem;
+  }
+
+  .shortlistItem {
+    grid-template-columns: 1fr;
+  }
+}
