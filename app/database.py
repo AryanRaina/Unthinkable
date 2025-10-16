@@ -8,8 +8,18 @@ from sqlalchemy.orm import Session, declarative_base, sessionmaker
 
 from .config import get_settings
 
+
+def _normalize_database_url(url: str) -> str:
+    """Ensure SQLAlchemy uses psycopg driver for Postgres URLs."""
+
+    if url.startswith("postgres://"):
+        url = url.replace("postgres://", "postgresql://", 1)
+    if url.startswith("postgresql://") and "+psycopg" not in url:
+        url = url.replace("postgresql://", "postgresql+psycopg://", 1)
+    return url
+
 settings = get_settings()
-DATABASE_URL = settings.database_url
+DATABASE_URL = _normalize_database_url(settings.database_url)
 
 _engine_kwargs = {}
 if DATABASE_URL.startswith("sqlite"):
