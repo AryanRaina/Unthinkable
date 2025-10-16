@@ -2,6 +2,11 @@
 
 Smart Resume Screener ingests resumes, structures the data, and ranks candidates against job descriptions using either an OpenAI model or a deterministic heuristic. It ships as a FastAPI backend with a Vite + React dashboard for recruiters.
 
+# Live Link
+
+https://unthinkable-resume-screener.vercel.app/
+
+
 # Demo Video
 
 <p align="center">
