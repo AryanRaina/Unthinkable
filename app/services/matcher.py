@@ -57,10 +57,10 @@ class LLMMatcher:
         if self._client:
             try:
                 payload = _MATCH_PROMPT.format(
-                    resume_json=resume.as_dict(),
+                    resume_json=json.dumps(resume.as_dict(), ensure_ascii=False),
                     job_description=job.description,
                     job_title=job.title,
-                    required_skills=", ".join(job.required_skills),
+                    required_skills=json.dumps(list(job.required_skills), ensure_ascii=False),
                 )
                 response = await asyncio.to_thread(self._call_openai, payload)
                 if response:
@@ -94,7 +94,7 @@ class LLMMatcher:
         score = float(parsed.get("score", 0))
         reasoning_field = parsed.get("reasoning")
         if isinstance(reasoning_field, list):
-            reasoning = " \n".join(str(line) for line in reasoning_field)
+            reasoning = "\n".join(str(line).strip() for line in reasoning_field if str(line).strip())
         else:
             reasoning = str(reasoning_field or "No reasoning provided.")
         return score, reasoning, self.model
@@ -132,7 +132,7 @@ def heuristic_match(resume: ParsedResume, job: JobProfile) -> Tuple[float, str]:
     if resume.candidate_name:
         reasoning_lines.insert(0, f"Candidate: {resume.candidate_name}")
 
-    return overall, " \n".join(reasoning_lines)
+    return overall, "\n".join(reasoning_lines)
 
 
 def _skill_overlap(resume_skills: Iterable[str], required: Iterable[str]) -> float:
